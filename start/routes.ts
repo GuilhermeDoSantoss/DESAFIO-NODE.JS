@@ -20,31 +20,26 @@
 
 import Route from '@ioc:Adonis/Core/Route'
 
-// Rotas para Aluno
-Route.post('/alunos', 'AlunosController.store')
-Route.get('/alunos', 'AlunosController.index')
-Route.get('/alunos/:id', 'AlunosController.show')
-Route.put('/alunos/:id', 'AlunosController.update')
-Route.delete('/alunos/:id', 'AlunosController.destroy')
-Route.get('/alunos/:alunoId/salas', 'AlunosController.listSalas')
+// Aluno
+Route.post('/alunos', 'AlunosController.store') // RF01
+Route.put('/alunos/:id', 'AlunosController.update') // RF02
+Route.delete('/alunos/:id', 'AlunosController.destroy') // RF03
+Route.get('/alunos/:id', 'AlunosController.show') // RF04
+Route.get('/alunos/:alunoId/salas', 'AlunosController.listSalas') // RF16
 
-// Rotas para Professor
-Route.post('/professores', 'ProfessoresController.store')
-Route.get('/professores', 'ProfessoresController.index')
-Route.get('/professores/:id', 'ProfessoresController.show')
-Route.put('/professores/:id', 'ProfessoresController.update')
-Route.delete('/professores/:id', 'ProfessoresController.destroy')
+// Professor
+Route.post('/professores', 'ProfessoresController.store') // RF05
+Route.put('/professores/:id', 'ProfessoresController.update') // RF06
+Route.delete('/professores/:id', 'ProfessoresController.destroy') // RF07
+Route.get('/professores/:id', 'ProfessoresController.show') // RF08
 
-// Rotas para Sala
-Route.post('/salas', 'SalasController.store')
-Route.get('/salas', 'SalasController.index')
-Route.get('/salas/:id', 'SalasController.show')
-Route.put('/salas/:id', 'SalasController.update')
-Route.delete('/salas/:id', 'SalasController.destroy')
+// Sala
+Route.post('/salas', 'SalasController.store') // RF09
+Route.put('/salas/:id', 'SalasController.update') // RF10
+Route.delete('/salas/:id', 'SalasController.destroy') // RF11
+Route.get('/salas/:id', 'SalasController.show') // RF12
 
-// Alocar e remover aluno de sala
-Route.post('/salas/:salaId/alunos/:alunoId', 'SalasController.addAluno')
-Route.delete('/salas/:salaId/alunos/:alunoId', 'SalasController.removeAluno')
-
-// Consultar todos os alunos de uma sala
-Route.get('/salas/:salaId/alunos', 'SalasController.listAlunos')
+// Alocação de alunos em sala
+Route.post('/salas/:salaId/alunos/:alunoId', 'SalasController.addAluno') // RF13
+Route.delete('/salas/:salaId/alunos/:alunoId', 'SalasController.removeAluno') // RF14
+Route.get('/salas/:salaId/alunos', 'SalasController.listAlunos') // RF15
