@@ -1,0 +1,120 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2025-09-12T00:00:00.000Z",
+  "__export_source": "insomnia.desktop.app:v2024.4.0",
+  "resources": [
+    {
+      "_id": "wrk_1",
+      "name": "My School API",
+      "_type": "workspace"
+    },
+    {
+      "_id": "env_1",
+      "parentId": "wrk_1",
+      "_type": "environment",
+      "name": "Base Environment",
+      "data": {
+        "base_url": "http://localhost:3000"
+      }
+    },
+    {
+      "_id": "fld_alunos",
+      "_type": "request_group",
+      "parentId": "wrk_1",
+      "name": "Alunos"
+    },
+    {
+      "_id": "req_aluno_create",
+      "parentId": "fld_alunos",
+      "_type": "request",
+      "name": "Criar Aluno",
+      "method": "POST",
+      "url": "{{ base_url }}/alunos",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"nome\": \"João Silva\",\n  \"email\": \"joao@email.com\",\n  \"matricula\": \"A123\",\n  \"dataNascimento\": \"2005-09-12\"\n}"
+      }
+    },
+    {
+      "_id": "req_aluno_list",
+      "parentId": "fld_alunos",
+      "_type": "request",
+      "name": "Listar Alunos",
+      "method": "GET",
+      "url": "{{ base_url }}/alunos"
+    },
+    {
+      "_id": "fld_professores",
+      "_type": "request_group",
+      "parentId": "wrk_1",
+      "name": "Professores"
+    },
+    {
+      "_id": "req_professor_create",
+      "parentId": "fld_professores",
+      "_type": "request",
+      "name": "Criar Professor",
+      "method": "POST",
+      "url": "{{ base_url }}/professores",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"nome\": \"Maria Souza\",\n  \"email\": \"maria@email.com\",\n  \"matricula\": \"P456\",\n  \"dataNascimento\": \"1980-01-15\"\n}"
+      }
+    },
+    {
+      "_id": "req_professor_list",
+      "parentId": "fld_professores",
+      "_type": "request",
+      "name": "Listar Professores",
+      "method": "GET",
+      "url": "{{ base_url }}/professores"
+    },
+    {
+      "_id": "fld_salas",
+      "_type": "request_group",
+      "parentId": "wrk_1",
+      "name": "Salas"
+    },
+    {
+      "_id": "req_sala_create",
+      "parentId": "fld_salas",
+      "_type": "request",
+      "name": "Criar Sala",
+      "method": "POST",
+      "url": "{{ base_url }}/salas",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"numero\": \"101\",\n  \"capacidade\": 30,\n  \"disponibilidade\": true,\n  \"professorId\": \"<id_do_professor>\"\n}"
+      }
+    },
+    {
+      "_id": "req_sala_list",
+      "parentId": "fld_salas",
+      "_type": "request",
+      "name": "Listar Salas",
+      "method": "GET",
+      "url": "{{ base_url }}/salas"
+    },
+    {
+      "_id": "req_sala_alocar_aluno",
+      "parentId": "fld_salas",
+      "_type": "request",
+      "name": "Alocar Aluno na Sala",
+      "method": "POST",
+      "url": "{{ base_url }}/salas/{{salaId}}/alunos",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"alunoId\": \"<id_do_aluno>\",\n  \"professorId\": \"<id_do_professor>\"\n}"
+      }
+    },
+    {
+      "_id": "req_aluno_salas",
+      "parentId": "fld_alunos",
+      "_type": "request",
+      "name": "Salas do Aluno",
+      "method": "GET",
+      "url": "{{ base_url }}/alunos/{{alunoId}}/salas"
+    }
+  ]
+}
