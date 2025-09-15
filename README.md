@@ -44,7 +44,7 @@ Esta é uma API RESTful desenvolvida em [AdonisJS](https://adonisjs.com/) para g
 
 1. **Clone o repositório**
    ```bash
-   git clone https://github.com/seu-usuario/my-school-api.git
+   git clone https://github.com/GuilhermeDoSantoss/DESAFIO-NODE.JS
    cd my-school-api
    ```
 
